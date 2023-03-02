@@ -14,6 +14,7 @@ void main() => runApp(
       ),
     );
 
+
 class FindJob extends StatelessWidget {
   const FindJob({Key? key}) : super(key: key);
 
