@@ -1,3 +1,4 @@
+import 'package:find_job_amit/utilities/assets/app_assets.dart';
 import 'package:find_job_amit/view/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -43,25 +44,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 children: [
                   CustomTextField(
                     hint: 'Enter your username',
-                    prefixIcon: Icons.person,
+                    prefixIcon:Image.asset(AppAssets.logoAsset),
                     controller: _usernameController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter a username';
                       }
                       return null;
-                    }, icon: Image.asset(
-                    'assets/icons/message_grey.png', // path to your image asset
-                    height: 24, // set the desired height
-                  ),
+                    },
                   ),
                   const SizedBox(height: 16.0),
                   CustomTextField(
                     hint: 'Enter your email',
-                    icon:Image.asset(
-                      'assets/icons/message_grey.png', // path to your image asset
-                      height: 24, // set the desired height
-                    ),
+                    prefixIcon:Image.asset(AppAssets.logoAsset),
                     keyboardType: TextInputType.emailAddress,
                     controller: _emailController,
                     validator: (value) {
@@ -78,8 +73,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   const SizedBox(height: 16.0),
                   CustomTextField(
                     hint: 'Enter your password',
-                    prefixIcon: Icons.lock,
-                    suffixIcon: _isValid ? Icons.check : null,
+                    prefixIcon:Image.asset(AppAssets.logoAsset),
+                    suffixIcon: _isValid ? Icons.remove_red_eye : null,
                     obscureText: true,
                     controller: _passwordController,
                     validator: (value) {
@@ -91,10 +86,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       }
                       _isValid = true;
                       return null;
-                    }, icon: Image.asset(
-                    'assets/icons/message_grey.png', // path to your image asset
-                    height: 24, // set the desired height
-                  ),
+                    },
                   ),
                   const SizedBox(height: 32.0),
                   ElevatedButton(
@@ -105,6 +97,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     },
                     child: const Text('Sign Up'),
                   ),
+                  TextFormField(decoration: InputDecoration(prefixIcon: Image.asset(AppAssets.logoAsset)),)
                 ],
               ),
             ),

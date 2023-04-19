@@ -5,6 +5,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:sizer/sizer.dart';
 
 void main() => runApp(
+  
       DevicePreview(
         enabled: true,
         tools: const [...DevicePreview.defaultTools],

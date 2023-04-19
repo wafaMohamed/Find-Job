@@ -4,24 +4,23 @@ class CustomTextField extends StatefulWidget {
   final String hint;
   final TextInputType keyboardType;
   final bool obscureText;
-  final IconData? prefixIcon;
+  final String? prefixIconAsset;
   final IconData? suffixIcon;
   final TextEditingController controller;
   final String? Function(String?)? validator;
 
   const CustomTextField({
-    super.key,
+    Key? key,
     required this.hint,
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
-    this.prefixIcon,
+    this.prefixIconAsset,
     this.suffixIcon,
     required this.controller,
-    this.validator, required icon,
-  });
+    this.validator, required Image prefixIcon,
+  }) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _CustomTextFieldState createState() => _CustomTextFieldState();
 }
 
@@ -36,10 +35,16 @@ class _CustomTextFieldState extends State<CustomTextField> {
       obscureText: widget.obscureText,
       decoration: InputDecoration(
         hintText: widget.hint,
-        icon: Image.asset(
-          '', // path to your image asset
-          height: 24, // set the desired height
-        ),
+        prefixIcon: widget.prefixIconAsset != null
+            ? Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset(
+            widget.prefixIconAsset!,
+            height: 24,
+            width: 24,
+          ),
+        )
+            : null,
         suffixIcon: widget.suffixIcon != null ? Icon(widget.suffixIcon) : null,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
