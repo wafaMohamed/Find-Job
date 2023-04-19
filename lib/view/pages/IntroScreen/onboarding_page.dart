@@ -8,7 +8,7 @@ import 'package:find_job_amit/view/pages/IntroScreen/page1.dart';
 import 'package:find_job_amit/view/pages/IntroScreen/page2.dart';
 import 'package:find_job_amit/view/pages/IntroScreen/page3.dart';
 import 'package:flutter/material.dart';
-
+import '../../../utilities/route/routes.dart';
 import '../../../utilities/themes/apptheme.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -26,7 +26,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppTheme.backgroundOnBoarding,
+        backgroundColor: currentIndex==0?AppTheme.backgroundOnBoarding0:AppTheme.backgroundOnBoarding,
         body: Column(
           children: [
             Padding(
@@ -38,8 +38,17 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   width: 81,
                 ),
 
-                InkWell(
-                  onTap: () => controller.jumpToPage(2),
+                GestureDetector(
+                  onTap: () {
+
+                    print('object');
+                    if(currentIndex==0){
+                      controller.nextPage(duration: const Duration(microseconds: 100), curve: Curves.linear);
+                      controller.nextPage(duration: const Duration(microseconds: 100), curve: Curves.linear);
+                    }else if(currentIndex==1){
+                      controller.nextPage(duration: const Duration(microseconds: 100), curve: Curves.linear);
+                    }
+                  },
                   child: CustomText(
                     text: AppString.skipString,
                     fontFamily: 'SF',
@@ -72,11 +81,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   alignment: const Alignment(0, 0.90),
                   child: SmoothPageIndicator(
                     onDotClicked:(index) {
-
                     },
                     effect:  const WormEffect(
-                      dotHeight:6,
-                      dotWidth: 6,
+                      dotHeight:8,
+                      dotWidth: 8,
                       spacing: 3,
                       dotColor: AppTheme.primary200,
                       activeDotColor: AppTheme.primary500,
@@ -90,7 +98,17 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               ],
             )),
             CustomMainButton(
-                Onpressed: () {}, text: AppString.skipString, Height: 30)
+                onpressed: () {
+                  if(currentIndex==2){
+                    Navigator.of(context).pushNamedAndRemoveUntil(AppRoutes.registerRoute, (route) => false);
+                  }else {
+                    controller.nextPage(duration: const Duration(microseconds: 100), curve: Curves.linear);
+                  }
+                },
+              text:currentIndex!=2? AppString.nextString:AppString.getStartedString,
+
+            ),
+            SizedBox(height: 6.h,)
           ],
         ),
       ),

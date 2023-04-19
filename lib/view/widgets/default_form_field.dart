@@ -1,145 +1,77 @@
 import 'package:flutter/material.dart';
 
-class CustomFormField extends StatelessWidget {
+class CustomTextField extends StatefulWidget {
+  final String hint;
+  final TextInputType keyboardType;
+  final bool obscureText;
+  final IconData? prefixIcon;
+  final IconData? suffixIcon;
   final TextEditingController controller;
   final String? Function(String?)? validator;
-  final VoidCallback? onTap;
-  final String? labelText;
-  final TextInputType keyboardType;
-  final void Function(String)? onFieldSubmitted;
-  final void Function()? onEditingComplete;
-  final void Function(String)? onChanged;
-  final bool obscureText;
-  final bool enabled;
-  final Widget? prefixIcon;
-  final Widget? suffixIcon;
-  final String? initialValue;
-  final String? hintText;
-  final String? suffixText;
-  final TextStyle? suffixTextStyle;
-  final Color? backgroundColor;
-  final Color? textColor;
-  // final Color? labelColor;
-  final Color? cursorColor;
-  final double radius;
-  final double? height;
-  final int? maxLines;
-  final double horizontalPadding;
-  final InputBorder? inputBorder;
-  final InputBorder? inputEnabledBorder;
-  final InputBorder? inputFocusedBorder;
-  final InputBorder? inputDisabledBorder;
-  final EdgeInsetsGeometry? contentPadding;
-  final AlignmentGeometry? containerAlignment;
-  final BoxConstraints? suffixIconConstraints;
-  final bool readOnly;
-  final int? maxLength;
-  final TextDirection? textDirection;
-  final TextAlign textAlign;
-  final TextInputAction textInputAction;
-  final String obscuringChar;
 
-  const CustomFormField({
-    Key? key,
-    required this.controller,
-    this.validator,
-    this.onTap,
-    this.labelText,
-    required this.keyboardType,
-    this.onFieldSubmitted,
-    this.onEditingComplete,
-    this.onChanged,
+  const CustomTextField({
+    super.key,
+    required this.hint,
+    this.keyboardType = TextInputType.text,
     this.obscureText = false,
     this.prefixIcon,
     this.suffixIcon,
-    this.initialValue,
-    this.hintText,
-    this.backgroundColor,
-    this.height,
-    this.radius = 20,
-    this.maxLines,
-    this.enabled = true,
-    this.inputBorder =
-        const OutlineInputBorder(
-            borderSide: BorderSide.none),
-    this.inputEnabledBorder,
-    this.inputFocusedBorder,
-    this.inputDisabledBorder,
-    this.horizontalPadding = 0,
-    this.textColor,
+    required this.controller,
+    this.validator, required icon,
+  });
 
-    // this.labelColor = ,
-    this.contentPadding,
-    this.containerAlignment,
-    this.suffixText,
-    this.suffixTextStyle,
-    this.suffixIconConstraints,
-    this.readOnly = false,
-    this.cursorColor,
-    this.maxLength,
-    this.textDirection = TextDirection.ltr,
-    this.textAlign = TextAlign.start,
-    this.textInputAction =TextInputAction.next,
-    this.obscuringChar="*",
-  }) : super(key: key);
+  @override
+  // ignore: library_private_types_in_public_api
+  _CustomTextFieldState createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  bool _isFocused = false;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: containerAlignment,
-      height: height,
-      padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-      decoration:
-      BoxDecoration(
-          color:Colors.grey[300],
-          borderRadius: BorderRadius.circular(radius)),
-      child: TextFormField(
-        obscuringCharacter: obscuringChar,
-        maxLength: maxLength,
-        readOnly: readOnly,
-        cursorColor: cursorColor,
-        enabled: enabled,
-        textAlignVertical: TextAlignVertical.center,
-        textAlign: textAlign,
-        maxLines: maxLines,
-        textDirection: textDirection,
-        initialValue: initialValue,
-        controller: controller,
-        validator: validator,
-        keyboardType: keyboardType,
-        onFieldSubmitted: onFieldSubmitted,
-        onEditingComplete: onEditingComplete,
-        onChanged: onChanged,
-        onTap: onTap,
-        obscureText: obscureText,
-        style: TextStyle(
-          color: textColor,
+    return TextFormField(
+      controller: widget.controller,
+      keyboardType: widget.keyboardType,
+      obscureText: widget.obscureText,
+      decoration: InputDecoration(
+        hintText: widget.hint,
+        icon: Image.asset(
+          '', // path to your image asset
+          height: 24, // set the desired height
         ),
-        decoration: InputDecoration(
-          counterText: '',
-          suffixStyle: suffixTextStyle,
-          suffixText: suffixText,
-          contentPadding: contentPadding,
-          isDense: true,
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          suffixIconConstraints: suffixIconConstraints,
-          labelStyle: Theme.of(context).textTheme.caption!.copyWith(
-              // color: labelColor,
-              ),
-          labelText: labelText,
-          border: inputBorder,
-          enabledBorder: inputEnabledBorder,
-          disabledBorder: inputDisabledBorder,
-          focusedBorder: inputFocusedBorder,
-          hintText: hintText,
-          hintStyle:  const TextStyle(
-            color: Colors.grey,
+        suffixIcon: widget.suffixIcon != null ? Icon(widget.suffixIcon) : null,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.0),
+          borderSide: BorderSide(
+            color: _isFocused ? Colors.green : Colors.grey,
           ),
-          hintTextDirection: TextDirection.ltr,
-          prefixIcon: prefixIcon,
-          suffixIcon: suffixIcon,
         ),
       ),
+      validator: widget.validator,
+      onChanged: (_) {
+        setState(() {
+          _isFocused = true;
+        });
+      },
+      onFieldSubmitted: (_) {
+        setState(() {
+          _isFocused = false;
+        });
+      },
+      onTap: () {
+        setState(() {
+          _isFocused = true;
+        });
+      },
+      onEditingComplete: () {
+        setState(() {
+          _isFocused = false;
+        });
+      },
     );
   }
 }

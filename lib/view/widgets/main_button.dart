@@ -1,28 +1,37 @@
+import 'package:find_job_amit/utilities/themes/apptheme.dart';
 import 'package:flutter/material.dart';
-
+import 'package:sizer/sizer.dart';
 import 'custom_text.dart';
 
 class CustomMainButton extends StatelessWidget {
-  final VoidCallback Onpressed;
+  final VoidCallback onpressed;
   final String text;
-  final double Height;
 
-  const CustomMainButton(
-      {Key? key,
-      required this.Onpressed,
-      required this.text,
-      required this.Height});
+  const CustomMainButton({
+    Key? key,
+    required this.onpressed,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: Height,
-      width: 100,
-      child: ElevatedButton(
-        onPressed: Onpressed,
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(1000),
+        color: Colors.blue,
+      ),
+      height: 48,
+      width: 327,
+      child: MaterialButton(
+        onPressed: onpressed,
         child: CustomText(
           text: text,
-          fontFamily: 'SF',
+          style: TextStyle(
+              color: AppTheme.backgroundOnBoarding,
+              fontSize: 14.sp,
+              fontFamily: 'SF',
+              fontWeight: FontWeight.w500), fontFamily: 'SF',
+
         ),
       ),
     );

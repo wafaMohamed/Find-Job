@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 //Color System
 class AppTheme{
   //  Background Color
-  static const Color backgroundOnBoarding= Color(0xffffffff);
+  static const Color backgroundOnBoarding= Color(0xfffafafa);
+  static const Color backgroundOnBoarding0= Color(0xffffffff);
   //  Neutral Colors
   static const Color neutral100 = Color(0xffF4F4F5);
   static const Color neutral200 = Color(0xffE5E7EB);
@@ -12,7 +13,7 @@ class AppTheme{
   static const Color neutral600 = Color(0xff4B5563);
   static const Color neutral700 = Color(0xff374151);
   static const Color neutral800 = Color(0xff1F2937);
-  static const Color neutral900 = Color(0xffEFE1FF);
+  static const Color neutral900 = Color(0xff111827);
   //  primary Colors
   static const Color primary100 = Color(0xffD6E4FF);
   static const Color primary200 = Color(0xffADC8FF);

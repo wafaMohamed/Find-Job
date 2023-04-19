@@ -37,9 +37,10 @@ dependencies:
   ## -- STATE MANAGEMENT PACKAGES
   bloc: ^8.1.1
   flutter_bloc: ^8.1.2
+  equatable: ^2.0.5
 
   ## -- OnBoarding PACKAGES
-  smooth_page_indicator: ^1.0.0+2
+  smooth_page_indicator: ^1.1.0
 
   ## -- FIREBASE PACKAGE
 
@@ -85,11 +86,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/splash_images/
-    - assets/images/onboarding_images/
     - assets/images/
     - assets/fonts/
     - assets/logo/
+    - assets/icons/
+    - assets/icons/text_form_field/
 
 
   #   - images/a_dot_ham.jpeg

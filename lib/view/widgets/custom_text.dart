@@ -12,6 +12,7 @@ class CustomText extends StatelessWidget {
   final double? fontSize;
   final TextDecoration? textDecoration;
   final String fontFamily;
+  final TextStyle? style;
   const CustomText(
       {Key? key,
         required this.text,
@@ -23,7 +24,7 @@ class CustomText extends StatelessWidget {
         this.overflow = TextOverflow.ellipsis,
         this.textDecoration,
         this.fontSize,
-        required this.fontFamily,  TextStyle? style, this.onPressed,})
+        required this.fontFamily, this.style, this.onPressed,})
       : super(key: key);
 
   @override
@@ -34,13 +35,7 @@ class CustomText extends StatelessWidget {
       Text(
         text,
         textDirection: TextDirection.ltr,
-        style: TextStyle(
-          fontFamily: "SF",
-          color: color,
-          fontWeight: fontWeight,
-          fontSize: fontSize,
-          decoration: textDecoration,
-        ),
+        style: style,
         maxLines: maxLines,
         overflow: overflow,
         textAlign: textAlign,
