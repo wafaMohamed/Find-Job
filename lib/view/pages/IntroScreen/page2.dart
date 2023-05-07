@@ -1,11 +1,10 @@
-
-
 import 'package:find_job_amit/utilities/themes/apptheme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../utilities/assets/app_assets.dart';
 import '../../../utilities/strings/app_strings.dart';
+import '../../widgets/custom_text.dart';
 
 class Page2 extends StatelessWidget {
   const Page2({Key? key}) : super(key: key);
@@ -49,7 +48,6 @@ class Page2 extends StatelessWidget {
                     fontWeight: FontWeight.w500),
               ),
             ]),
-
             Text(
               AppString.titleOnBoarding2Primary500String11,
               style: TextStyle(
@@ -63,13 +61,14 @@ class Page2 extends StatelessWidget {
       ),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Text(
-          AppString.subTitleOnBoarding2String,
+        child: CustomText(
+          maxLines: 2,
           style: TextStyle(
               color: AppTheme.neutral500,
-              fontFamily: 'SF',
-              fontSize: 14.sp,
+              fontSize: 11.sp,
               fontWeight: FontWeight.w400),
+          text: AppString.subTitleOnBoarding2String,
+          fontFamily: 'SF', onpressed: () {  },
         ),
       ),
     ]);

@@ -30,7 +30,7 @@ class CustomMainButton extends StatelessWidget {
               color: AppTheme.backgroundOnBoarding,
               fontSize: 14.sp,
               fontFamily: 'SF',
-              fontWeight: FontWeight.w500), fontFamily: 'SF',
+              fontWeight: FontWeight.w500), fontFamily: 'SF', onpressed: () {  },
 
         ),
       ),

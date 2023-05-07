@@ -1,6 +1,6 @@
 
 
-import '../utilities/assets/app_assets.dart';
+import '../../utilities/assets/app_assets.dart';
 
 class BoardingModel {
   late final String image;

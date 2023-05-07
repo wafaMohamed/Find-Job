@@ -54,7 +54,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     fontFamily: 'SF',
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
-                    color: AppTheme.neutral500,
+                    color: AppTheme.neutral500, onpressed: () {  },
                   ),
                 )
               ]),
@@ -108,7 +108,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               text:currentIndex!=2? AppString.nextString:AppString.getStartedString,
 
             ),
-            SizedBox(height: 6.h,)
+            SizedBox(height: 6.h,),
           ],
         ),
       ),

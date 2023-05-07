@@ -13,26 +13,29 @@ class CustomText extends StatelessWidget {
   final TextDecoration? textDecoration;
   final String fontFamily;
   final TextStyle? style;
-  const CustomText(
-      {Key? key,
-        required this.text,
-        this.maxLines,
-         this.color = Colors.black,
-        this.textAlign,
-        this.textScaleFactor,
-        this.fontWeight = FontWeight.normal,
-        this.overflow = TextOverflow.ellipsis,
-        this.textDecoration,
-        this.fontSize,
-        required this.fontFamily, this.style, this.onPressed,})
-      : super(key: key);
+  final VoidCallback onpressed;
+
+  const CustomText({
+    Key? key,
+    required this.text,
+    this.maxLines,
+    this.color = Colors.black,
+    this.textAlign,
+    this.textScaleFactor,
+    this.fontWeight = FontWeight.normal,
+    this.overflow = TextOverflow.ellipsis,
+    this.textDecoration,
+    this.fontSize,
+    required this.fontFamily,
+    this.style,
+    this.onPressed, required this.onpressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {  },
-      child:
-      Text(
+      onPressed:onpressed,
+      child: Text(
         text,
         textDirection: TextDirection.ltr,
         style: style,
