@@ -1,4 +1,5 @@
 import 'package:find_job_amit/utilities/strings/app_strings.dart';
+import 'package:find_job_amit/view/widgets/custom_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -73,13 +74,15 @@ class Page1 extends StatelessWidget {
       ),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Text(
-          AppString.subTitleOnBoarding1String,
+        child: CustomText(
+          maxLines: 2,
           style: TextStyle(
               color: AppTheme.neutral500,
-              fontFamily: 'SF',
-              fontSize: 14.sp,
+              fontSize: 11.sp,
               fontWeight: FontWeight.w400),
+          text: AppString.subTitleOnBoarding1String,
+          fontFamily: 'SF',
+          onpressed: () {},
         ),
       ),
     ]);

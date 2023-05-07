@@ -40,6 +40,20 @@ class AppString{
   static String userNameString ="Username";
   static String passwordString ="Password";
   static String emailString ="Email";
+  static String whatTypeWorkInterestedString ="What type of work are you interested in?";
+  static String tellUsWhatInterestedString ="Tell us what you’re interested in so we can customise the app for your needs.";
+  static String uIUXDesignerString ="UI/UX Designer";
+  static String illustratorDesignerString ="Illustrator Designer";
+  static String developerString ="Developer";
+  static String managementString ="Management";
+  static String informationString ="Information";
+  static String technologyString ="Technology";
+  static String researchString ="Research and";
+  static String andAnalyticsString ="Analytics";
+  static String wherePreferredLocationString ="Where are you preferred Location?";
+  static String letUsKnowString ="Let us know, where is the work location you want at this time, so we can adjust it.";
+  static String yourAccountSetUpString ="Your account has been set up!";
+  static String weHaveCustomizedFeedsString ="We have customized feeds according to your preferences";
 
 
 
