@@ -18,7 +18,7 @@ class CustomMainButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(1000),
-        color: Colors.blue,
+        color: AppTheme.primary500,
       ),
       height: 48,
       width: 327,

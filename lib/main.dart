@@ -3,14 +3,22 @@ import 'package:find_job_amit/utilities/route/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:sizer/sizer.dart';
+import 'data_layer/repositry/dio_helper.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() => runApp(
-      DevicePreview(
-        enabled: true,
-        tools: const [...DevicePreview.defaultTools],
-        builder: (context) => const FindJob(),
-      ),
-    );
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  DioHelper.init();
+
+  runApp(
+    DevicePreview(
+      enabled: true,
+      tools: const [...DevicePreview.defaultTools],
+      builder: (context) => const FindJob(),
+    ),
+  );
+}
 
 class FindJob extends StatelessWidget {
   const FindJob({Key? key}) : super(key: key);
@@ -21,9 +29,16 @@ class FindJob extends StatelessWidget {
       return const MaterialApp(
         debugShowCheckedModeBanner: false,
         onGenerateRoute: onGenerate,
-        // initialRoute = home:
         initialRoute: AppRoutes.splashPageRoute,
       );
     });
   }
 }
+
+/* MultiBlocProvider(
+        // Add BLoCs here inside the providers list
+        providers: const [
+        // For example:
+        // BlocProvider<YourBloc1>(create: (context) => YourBloc1()),
+        ],
+        */

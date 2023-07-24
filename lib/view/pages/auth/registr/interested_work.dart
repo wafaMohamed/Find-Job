@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../../../../utilities/route/routes.dart';
 import '../../../../utilities/themes/apptheme.dart';
-import '../../../widgets/Custom_interested_work.dart';
+import 'custom_interested_work.dart';
+
 
 class InterestedWork extends StatelessWidget {
   InterestedWork({Key? key}) : super(key: key);

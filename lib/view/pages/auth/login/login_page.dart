@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:sizer/sizer.dart';
+import '../../../../utilities/route/routes.dart';
 import '../../../../utilities/strings/app_strings.dart';
 import '../../../../utilities/themes/apptheme.dart';
-import '../../../widgets/Custom_google_facebook.dart';
-import '../../../widgets/custom_appbar.dart';
+import '../../../widgets/text_widget.dart';
+import '../registr/custom_google_facebook.dart';
+import '../registr/custom_appbar.dart';
 import '../../../widgets/custom_text.dart';
 import '../../../widgets/default_form_field.dart';
 import '../../../widgets/main_button.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -70,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       CustomTextField(
                         keyboardType: TextInputType.name,
                         hint: 'Enter your username',
-                        prefixIcon: Icons.person_outline_outlined,
+                        prefixIcon: Iconsax.user,
                         /*Image.asset(AppAssets.logoAsset),*/
                         controller: _usernameLoginController,
                         validator: (value) {
@@ -84,8 +87,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       CustomTextField(
                         // keyboardType: TextInputType.visiblePassword,
                         hint: 'Enter your password',
-                        prefixIcon: Icons.lock_outline_rounded,
-                        suffixIcon: _isValidLogin ? Icons.remove_red_eye : null,
+                        prefixIcon:Iconsax.lock,
+                        suffixIcon: Iconsax.eye_slash,
                         obscureText: true,
                         controller: _passwordLoginController,
                         validator: (value) {
@@ -100,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                       ),
                        SizedBox(height: 1.h),
-                      //Checkbox
+                      ///Checkbox
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -110,14 +113,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                 setState(() =>
                                 isChecked1 =
                                 value!);
-                              },),
-                          CustomText(
-                              text: AppString.rememberMeString,
+                              },
+                          ),
+                          TextWidget(
+                            text: AppString.rememberMeString,
+                            style: TextStyle(
                               fontWeight: FontWeight.w400,
                               fontSize: 14.sp,
                               color: AppTheme.neutral800,
                               fontFamily: "SF",
-                              onpressed: () {}),
+                            ),
+                          ),
                           SizedBox(width: 6.w),
                           CustomText(
                               text: AppString.forgetPassString,
@@ -125,7 +131,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               fontSize: 14.sp,
                                color: AppTheme.primary500,
                               fontFamily: "SF",
-                              onpressed: () {}),
+                              onpressed: () {
+                                Navigator.of(context)
+                                    .pushNamed(AppRoutes.restPasswordRoute);
+
+                              }),
                         ],
                       ),
                       SizedBox(height: 5.h),
@@ -159,7 +169,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       CustomMainButton(
                         onpressed: () {
                           if (_formKeyLogin.currentState!.validate()) {
-                            // Perform sign-up action
+                            return setState(() {
+                              Navigator.of(context).pushNamed(AppRoutes.bottomNavigationRoute);
+                            });
                           }
                         },
                         text: 'Login',

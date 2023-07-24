@@ -1,7 +1,7 @@
 import 'package:find_job_amit/utilities/assets/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'IntroScreen/onboarding_page.dart';
+import 'onboarding/onboarding_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -24,11 +24,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Stack(
           alignment: Alignment.center,
-          children: const  [
+          children: [
             Image(
               image: AssetImage(AppAssets.splashAsset),
               fit: BoxFit.contain,

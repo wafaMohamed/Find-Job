@@ -1,11 +1,12 @@
 import 'package:find_job_amit/view/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:sizer/sizer.dart';
 import '../../../../utilities/route/routes.dart';
 import '../../../../utilities/strings/app_strings.dart';
 import '../../../../utilities/themes/apptheme.dart';
-import '../../../widgets/Custom_google_facebook.dart';
-import '../../../widgets/custom_appbar.dart';
+import 'custom_google_facebook.dart';
+import 'custom_appbar.dart';
 import '../../../widgets/default_form_field.dart';
 import '../../../widgets/main_button.dart';
 
@@ -67,7 +68,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       CustomTextField(
                         keyboardType: TextInputType.name,
                         hint: 'Enter your username',
-                        prefixIcon: Icons.person_outline_outlined,
+                        prefixIcon: Iconsax.user,
                         /*Image.asset(AppAssets.logoAsset),*/
                         controller: _usernameController,
                         validator: (value) {
@@ -80,7 +81,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       const SizedBox(height: 16.0),
                       CustomTextField(
                         hint: 'Enter your email',
-                        prefixIcon: Icons.email_outlined,
+                        prefixIcon: Iconsax.sms,
                         keyboardType: TextInputType.emailAddress,
                         controller: _emailController,
                         validator: (value) {
@@ -98,8 +99,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       CustomTextField(
                         // keyboardType: TextInputType.visiblePassword,
                         hint: 'Enter your password',
-                        prefixIcon: Icons.lock_outline_rounded,
-                        suffixIcon: _isValid ? Icons.remove_red_eye : null,
+                        prefixIcon: Iconsax.lock,
+                        suffixIcon:Iconsax.eye_slash,
                         obscureText: true,
                         controller: _passwordController,
                         validator: (value) {

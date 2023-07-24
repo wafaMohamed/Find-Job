@@ -4,6 +4,7 @@ import '../../../../utilities/assets/app_assets.dart';
 import '../../../../utilities/route/routes.dart';
 import '../../../../utilities/strings/app_strings.dart';
 import '../../../../utilities/themes/apptheme.dart';
+import '../../../widgets/back_button_widget.dart';
 import '../../../widgets/custom_text.dart';
 import '../../../widgets/main_button.dart';
 
@@ -22,17 +23,13 @@ class AccountSetup extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                IconButton(
-                  alignment: Alignment.topLeft,
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Icon(Icons.arrow_back)),
+                SizedBox(height: 2.h),
+                const BackButtonWidget(),
                 SizedBox(height: 10.h),
                 Image.asset(AppAssets.createAccountAsset),
                 SizedBox(height: 3.h),
                 CustomText(
-                    textAlign: TextAlign.start,
+                    textAlign: TextAlign.center,
                     text: AppString.yourAccountSetUpString,
                     style: TextStyle(
                         color: AppTheme.neutral900,
@@ -43,24 +40,24 @@ class AccountSetup extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: CustomText(
+                    textAlign: TextAlign.center,
                     maxLines: 2,
                     style: TextStyle(
                         color: AppTheme.neutral500,
-                        fontSize: 10.sp,
+                        fontSize: 11.sp,
                         fontWeight: FontWeight.w400),
                     text: AppString.weHaveCustomizedFeedsString,
                     fontFamily: 'SF',
                     onpressed: () {},
                   ),
                 ),
-                SizedBox(height: 5.h),
-                SizedBox(height: 15.h),
+                SizedBox(height: 33.h),
                 CustomMainButton(
                     onpressed: () {
                       Navigator.of(context)
-                          .pushNamed(AppRoutes.accountSetupRoute);
+                          .pushNamed(AppRoutes.bottomNavigationRoute);
                     },
-                    text: "Get Started"),
+                    text: AppString.getStartedString),
               ],
             ),
           ),
