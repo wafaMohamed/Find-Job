@@ -1,16 +1,29 @@
-# find_job_amit
+# Find-Job 💼
 
-A new Flutter project.
+🥰 A freelancing `Flutter` app I developed as part of my `graduation project` for  [AMIT LEARNING](https://www.linkedin.com/company/amit-learning/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BoPw8FRF%2BRdyFspL%2BGpSBRQ%3D%3D)
 
-## Getting Started
+![Screenshot 2023-07-30 142309](https://github.com/AbuMuftee/Find-Job/assets/84699634/6e64e25a-97da-44d9-8f8f-d5b0b9770857)
 
-This project is a starting point for a Flutter application.
+## Features ✍
+😇 Account management
+💬 Profile management
+🗃 File management
+🤳 Search functionality
+🎯 Post-find job
+🥂 Recommendations
 
-A few resources to get you started if this is your first Flutter project:
+## Skills shoutout
+- Connectivity Plus to discover network connectivity.
+- responsive design.
+- Store and manage data with shared preferences.
+- Animated jobs cards for a dynamic ui.
+- State management using Cubit.
+- Back-end database handling using RESTful API.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Let's connect `Wafa Mohamed`
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/wafa-mo/)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
+
